@@ -1,0 +1,25 @@
+<% include partials/header %>
+
+<div class="container">
+  <form id="UploadForm" enctype="multipart/form-data" action="http://localhost:3000/UploadPhoto" method="POST">
+      <h2 style="text-align:center">Upload Photo Using Multer</h2>
+    <div class="row">
+      <div class="col-sm-6" style="margin-left: 25%;">
+        <input type="file" name="UploadPhoto" id="UploadPhoto" accept="image/*" multiple>
+        <input type="submit" name="Submit" value="Upload Photo"> 
+        <img id="output" width="200" />
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="bottom-container">
+  <div class="row">
+    <div class="col" style="height: 20px;">
+    </div>
+    <div class="col">
+    </div>
+  </div>
+</div>
+
+<% include partials/footer %>
