@@ -29,24 +29,16 @@ myapp.get('/',function(req,res){
 		// multer	
 var mystorage = multer.diskStorage({
 	destination : function(req,file,cb){
-		cb(null,'public/images');
+		cb(null,'public/images')
 	},
 	filename : function(req,file,cb){
 		var name = file.originalname;
-		cb(null,name);
+		cb(null,name);	
 	}
-});
-
-var upload = multer({storage: mystorage}).single('UploadPhoto');	
-
-myapp.post('/UploadPhoto',function(req,res){
-    upload(req,res,function(err) {
-        if(err) {
-            return res.end("Error uploading file.");
-        }
-        res.end("File is uploaded");
-        res.send({ hello: 'successful' });
-    });
+	});
+var upload = multer({storage: mystorage});	
+myapp.post('/UploadPhoto',upload.single('UploadPhoto'),function(req,res){
+	res.send({'success': 'Success'});
 });
 // listen port
-myapp.listen(5000);
+myapp.listen(3000);
